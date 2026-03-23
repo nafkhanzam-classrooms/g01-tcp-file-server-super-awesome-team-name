@@ -2,10 +2,10 @@
 # Network Programming - Assignment G01
 
 ## Anggota Kelompok
-| Nama           | NRP        | Kelas     |
-| ---            | ---        | ----------|
-|                |            |           |
-|                |            |           |
+| Nama | NRP | Kelas |
+| --- | --- | --- |
+| Ahsin Khuluqil Karim | 5025241063 | Pemrograman Jaringan - D |
+| Liem, Alfred Haryanto | 5025241100 | Pemrograman Jaringan - D |
 
 ## Link Youtube (Unlisted)
 Link ditaruh di bawah ini
