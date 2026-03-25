@@ -485,3 +485,11 @@ def main():
 - Bagian terakhir merupakan error handling jika terjadi problem di network atau semacamnya (code block tersebut akan melakukan print errornya apa dan melakukan exit program).
 
 ## Screenshot Hasil
+
+<img width="1521" height="544" alt="image" src="https://github.com/user-attachments/assets/fef08e43-1874-42d7-aac6-8f09767e9a63" />
+
+<img width="1521" height="544" alt="image" src="https://github.com/user-attachments/assets/cecd668a-d80c-43c8-817a-b5afb8f2b984" />
+
+<img width="1521" height="544" alt="image" src="https://github.com/user-attachments/assets/9718d411-3705-45ce-84f5-e4f1d21a8d1c" />
+
+<img width="1521" height="544" alt="image" src="https://github.com/user-attachments/assets/f251b7fd-e8fe-48e3-94bf-6980e3e3da18" />
