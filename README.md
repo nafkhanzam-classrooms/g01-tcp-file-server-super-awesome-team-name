@@ -278,7 +278,7 @@ def main():
 
 - **Cara Kerja**: Server dimulai dengan mengisi socket pada `input_sockets`.
 - `Select Loop`: Server akan berjalan dalam loop, dimana setiap loop akan mengecek _client_ yang memiliki _data_. Server kemudian akan menandai _client_ yang aktif dan meletakkan socket baru pada `input_sockets` dan _client_ agar client bisa berkomunikasi dengan server. 
-- Jika select menandai server socket yang aktif, artinya ada client baru yang ingin terhubung — server akan accept() dan menambahkan socket client baru ke input_sockets. Jika yang aktif adalah client socket, maka akan memanggil handle_client_message. 
+- Jika select menandai server socket yang aktif, artinya ada client baru yang ingin terhubung, server akan accept() dan menambahkan socket client baru ke input_sockets. Jika yang aktif adalah client socket, maka akan memanggil `handle_client_message`. 
 - Jika return _false_, maka menghapus socket yang digunakan untuk berkomunikasi pada `input_sockets` dan _client_
 - **Kelebihan**: Jauh menghemat _resource_ pemrosesan CPU dan RAM kalau dibandingkan dengan menggunakan metode `threading` biasa. 
 - **Kelemahan**: Fitur pemantauan primitif dari modul `select()` OS itu pada umumnya memiliki limit yang hanya bisa menampung serta memantau maksimal 1024 objek sekaligus. Selain itu, jika jumlah pendaftar koneksinya bertambah secar drastis, program akan melambat karena instruksi _select_ memaksa pengecekan menyisir semua daftar dari ujung ke ujung secara berurutan. Karena sifatnya yang _single threaded_, jika 1 fungsi `handle_client_message` memiliki proses yang lama, proses lain nya akan ikut tertahan. 
@@ -472,9 +472,8 @@ def main():
 ```
 
 - **Cara Kerja**: Client memiliki fungsi `main` yang berfokus untuk mengirim command ke server, misalnya `LIST` untuk mengirimkan command yang dapat digunakan untuk melihat daftar file yang ada di `server_data`, `DOWNLOAD` untuk meminta ke server file yang ingin di download, dan `UPLOAD` untuk memberitahu server kita ingin melakukan upload. 
-- Karena client hanya akan menerima download dari server, maka di function `handle_messages` hanya ada untuk menerima file dari server (download) dan juga melakukan handle terhadap broadcast. .
-- Di bagian awal, sama seperti di server dimana client akan membaca dari socket, jika tidak menerima apapun maka akan melakukan _disconnect_.
 - Jika terdapat _command_ yang diberikan dari server maka akan diparsing dengan separator `"|"`. 
+- Karena client hanya akan menerima download dari server, maka di function `handle_messages` terdapat handling untuk menerima file dari server (download) dan juga melakukan handle terhadap broadcast.
 - Terdapat kondisi yang membedakan yakni `BRD` atau broadcast, dimana client akan menerima _message_ notifikasi dari server bila client lain melakukan download/upload. 
 - `DOWNLOAD`: sama seperti pada file _server_, dimana client akan menerima format `DOWNOAD_OK|nama file|size`, kemudian menerima stream _chunk_ dari server, dan menuliskannya pada file di sisi client.
 - `DOWNLOAD_ERR`: merupakan error handling bila file yang ingin di download tidak ada di sisi server. 
