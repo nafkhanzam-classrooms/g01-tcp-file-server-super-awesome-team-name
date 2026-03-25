@@ -475,7 +475,7 @@ def main():
 - Jika terdapat _command_ yang diberikan dari server maka akan diparsing dengan separator `"|"`. 
 - Karena client hanya akan menerima download dari server, maka di function `handle_messages` terdapat handling untuk menerima file dari server (download) dan juga melakukan handle terhadap broadcast.
 - Terdapat kondisi yang membedakan yakni `BRD` atau broadcast, dimana client akan menerima _message_ notifikasi dari server bila client lain melakukan download/upload. 
-- `DOWNLOAD`: sama seperti pada file _server_, dimana client akan menerima format `DOWNOAD_OK|nama file|size`, kemudian menerima stream _chunk_ dari server, dan menuliskannya pada file di sisi client.
+- `DOWNLOAD`: sama seperti pada file _server_, dimana client akan menerima format `DOWNLOAD_OK|nama file|size`, kemudian menerima stream _chunk_ dari server, dan menuliskannya pada file di sisi client.
 - `DOWNLOAD_ERR`: merupakan error handling bila file yang ingin di download tidak ada di sisi server. 
 - Bagian terakhir merupakan error handling jika terjadi problem di network atau semacamnya (code block tersebut akan melakukan print errornya apa dan melakukan exit program). 
 
