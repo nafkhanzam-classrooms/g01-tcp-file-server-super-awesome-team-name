@@ -99,6 +99,7 @@ def handle_client_message(sock):
                         chunk = f.read(4096)
                         if not chunk: break
                         sock.sendall(chunk)
+            broadcast(f"[Server info] Client {client_id} has downloaded '{filename}'")
         else:
             with client_locks.get(sock, threading.Lock()):
                 send_cmd(sock, "DOWNLOAD_ERR|File not found on the server.")
