@@ -110,14 +110,14 @@ def main():
             elif user_input.startswith('/upload'):
                 parts = user_input.split(maxsplit=1)
                 if len(parts) < 2:
-                    print("[!] Invalid format. Use: /upload <filename>")
+                    print("[!] Invalid format. Use: /upload <filepath>")
                     continue
-                filename = parts[1]
-                filepath = os.path.join(CLIENT_DIR, filename)
+                filepath = parts[1]
                 if not os.path.exists(filepath):
-                    print(f"[!] File '{filename}' not found in local folder '{CLIENT_DIR}'")
+                    print(f"[!] File '{filepath}' not found.")
                     continue
                 
+                filename = os.path.basename(filepath)
                 size = os.path.getsize(filepath)
                 send_cmd(sock, f"UPLOAD|{filename}|{size}")
                 print(f"[*] Uploading {filename} ({size} bytes)...")
